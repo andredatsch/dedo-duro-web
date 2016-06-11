@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="AngularGoogleMap" >
+    <head>
+        <meta charset="utf-8">
+        <title>Dedo Duro</title>
+
+        <link href="css/style.css" rel="stylesheet"/>
+
+        <!-- AngularJS -->
+        <script src="js/lib/angularjs.min.js?v=1.2.26"></script>
+
+        <!-- Google Maps -->
+        <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+
+        <!-- angular-goole-maps -->
+        <script src="js/lib/lodash.underscore.min.js?v=2.4.1"></script>
+        <script src="js/lib/angular-google-maps.min.js?v=1.2.2"></script>
+
+        <!-- Custom angular module -->
+        <script src="js/map.js?v=1.0"></script>
+    </head>
+    <body ng-controller="MapCtrl">
+        <div class="map_container" >
+            <google-map  center="map.center" zoom="map.zoom" draggable="true" options="map.options">
+                <marker ng-repeat="dados in coordenadas" 
+                        coords="{latitude:dados.latitude, longitude: dados.longitude }" 
+                        options="{ clickable: true, draggable : false, icon : dados.icon}"  
+                        events="marker.events" 
+                        idkey="dados.id">
+                </marker>                
+            </google-map>
+            <!--google-map center="map.center" zoom="map.zoom" draggable="true" options="map.options" control="map.control">
+                <markers models="map.markers" coords="'self'" options="'options'" isLabel='true'>
+                </markers>
+            </google-map-->
+        </div> 
+    </body>
+</html>
