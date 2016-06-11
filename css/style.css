@@ -44,6 +44,10 @@ p {
     padding: 0 0 50px 20px;
 }
 
+.headerPopup {
+    font-size: 20px;
+}
+
 .firstHeading {
     font-size: 10px;
 }
@@ -52,4 +56,10 @@ p {
 width: auto;
 height: 300px;
 
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline;
 }

@@ -87,13 +87,18 @@ app.controller('MapCtrl', ['MarkerCreatorService', '$scope', '$http', function (
                     var contentString = '<div id="content">'+
                       '<div id="siteNotice">'+
                       '</div>'+
-                      '<h1 id="firstHeading" class="firstHeading">'+data.tipoDenuncia + ' - ' + data.observacao+'</h1>'+
+                      '<h1 id="firstHeading" class="headerPopup">' + data.tipoDenuncia + '</h1>'+
                       '<div id="bodyContent">'+
                       '<img alt="Embedded Image" class="image-map" src="data:image/png;base64,' + data.foto + '" />'+
                       '</div>'+
-                      '<div>' + 
-                        '<button onClick="excluiImagem(\''+ data.id + '\')" >'+ 
+                      '<h1 id="firstHeading" class="firstHeading">' + data.observacao+'</h1>'+
+                      '<div  style="text-align: center">' + 
+                        '<button onClick="fechar()" >'+ 
                         'Fechar'+ 
+                        '</button>'+
+                        '<div class="divider"/>' + 
+                        '<button onClick="excluiImagem(\''+ data.id + '\')" >'+ 
+                        'Concluir'+ 
                         '</button>'+ 
                       '</div>'
                       '</div>';
@@ -107,6 +112,10 @@ app.controller('MapCtrl', ['MarkerCreatorService', '$scope', '$http', function (
             }
         }
     }, 
+
+    fechar = function(){
+        $scope.infoWindow.close();                         
+    },
 
     excluiImagem = function(idImagem){
         console.log(idImagem);
